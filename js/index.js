@@ -89,7 +89,7 @@ async function setCurrencyBy() {
 
 async function setCurrencyRub() {
 
-    let data = await getData('https://www.cbr-xml-daily.ru/daily_json.js', { mode: 'no-cors'});
+    let data = await getData('https://www.cbr-xml-daily.ru/daily_json.js');
 
     let rub = data.Valute.USD.Value;
     rub = rub.toFixed(2)
