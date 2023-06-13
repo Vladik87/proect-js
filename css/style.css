@@ -88,6 +88,9 @@ h3 {
   display: -ms-flexbox;
   display: flex;
 }
+.flag img {
+  cursor: pointer;
+}
 
 .currency {
   display: -webkit-box;
