@@ -40,7 +40,7 @@ async function setCards() {
 setCards()
 
 let currenc = document.querySelector('.flag');
-currenc.addEventListener('click', currency);
+currenc?.addEventListener('click', currency);
 let regExp = '\$'
 
 
