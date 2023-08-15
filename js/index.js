@@ -25,10 +25,10 @@ async function setCards() {
         <p>${category}</p>
         <h3>${title}</h3>
         <div class="imag">
-         <img src = ${image} alt = ${title}>
-       </div>
-       <span>${description}</span>
-       <h2>Price:  ${price} $</h2>
+        <img src = ${image} alt = ${title}>
+    </div>
+    <span>${description}</span>
+    <h2>Price:  ${price} $</h2>
         </div>
         `
 
@@ -47,7 +47,7 @@ let regExp = '\$'
 
 function currency(event) {
     let flag = event.target.getAttribute('Alt');
-      
+
     if (flag === 'BY') {
         setCurrencyBy()
     }
@@ -55,7 +55,7 @@ function currency(event) {
         setCurrencyRub()
     }
     if (flag === 'USD') {
-       setCurrencyUsd()
+        setCurrencyUsd()
     }
 
 }
@@ -65,22 +65,22 @@ async function setCurrencyBy() {
 
     let data = await getData('https://api.nbrb.by/exrates/rates/431');
     let by = data.Cur_OfficialRate;
-    
+
 
     let res = await getData('https://fakestoreapi.com/products');
-   
+
     res.forEach(({ title, image, category, description, price }) => {
-        let f = (price*by).toFixed(2)
-         let car = document.querySelector('.card');
+        let f = (price * by).toFixed(2)
+        let car = document.querySelector('.card');
         car.innerHTML = `
         <div class="card"> 
         <p>${category}</p>
         <h3>${title}</h3>
         <div class="imag">
-         <img src = ${image} alt = ${title}>
-       </div>
-       <span>${description}</span>
-       <h2>Price:  ${f} BY</h2>
+        <img src = ${image} alt = ${title}>
+    </div>
+    <span>${description}</span>
+    <h2>Price:  ${f} BY</h2>
         </div>
         `
         cards?.append(car)
@@ -93,41 +93,41 @@ async function setCurrencyRub() {
 
     let rub = data.Valute.USD.Value;
     rub = rub.toFixed(2)
-    
-let res = await getData('https://fakestoreapi.com/products');
-   
+
+    let res = await getData('https://fakestoreapi.com/products');
+
     res.forEach(({ title, image, category, description, price }) => {
-        let f = (price*rub).toFixed(2)
-         let car = document.querySelector('.card');
+        let f = (price * rub).toFixed(2)
+        let car = document.querySelector('.card');
         car.innerHTML = `
         <div class="card"> 
         <p>${category}</p>
         <h3>${title}</h3>
         <div class="imag">
-         <img src = ${image} alt = ${title}>
-       </div>
-       <span>${description}</span>
-       <h2>Price:  ${f} RUB</h2>
+        <img src = ${image} alt = ${title}>
+    </div>
+    <span>${description}</span>
+    <h2>Price:  ${f} RUB</h2>
         </div>
         `
         cards?.append(car)
     });
 }
 
-async function setCurrencyUsd(){
+async function setCurrencyUsd() {
     let res = await getData('https://fakestoreapi.com/products');
-   
-    res.forEach(({ title, image, category, description, price }) => {       
-         let car = document.querySelector('.card');
+
+    res.forEach(({ title, image, category, description, price }) => {
+        let car = document.querySelector('.card');
         car.innerHTML = `
         <div class="card"> 
         <p>${category}</p>
         <h3>${title}</h3>
         <div class="imag">
-         <img src = ${image} alt = ${title}>
-       </div>
-       <span>${description}</span>
-       <h2>Price:  ${price} $</h2>
+        <img src = ${image} alt = ${title}>
+    </div>
+    <span>${description}</span>
+    <h2>Price:  ${price} $</h2>
         </div>
         `
         cards?.append(car)
